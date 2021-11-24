@@ -49,7 +49,8 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    ssh-keys = "ssh_user:${file(var.ssh_pub_key)}"
+    //ssh-keys = "ssh_user:${file(var.ssh_pub_key)}"
+    ssh-keys = "${var.ssh_user}:${file(var.ssh_pub_key)}"
   }
 
   service_account {
